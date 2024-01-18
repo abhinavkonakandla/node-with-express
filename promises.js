@@ -46,7 +46,7 @@ readFilePromise(filetext)
       })
       .catch((error)=>{
         console.log("error",error);
-      })*/
+      })
 
 const myFirstPromise = ()=>{
   return new promise((reject,resolve)=>{
@@ -67,5 +67,6 @@ myFirstPromise()
       })
       .catch((error)=>{
         console.log("an error has been occured");
-      })
+      })*/
+
 
