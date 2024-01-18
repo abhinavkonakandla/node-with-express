@@ -50,6 +50,8 @@ readFilePromise(filetext)
 
 const myFirstPromise = ()=>{
   return new promise((reject,resolve)=>{
+    //here we need to perform any asynchronous operation 
+    //to that async op we need to give callback as this if-else
     if(error){
       reject(error);
     }
@@ -58,7 +60,7 @@ const myFirstPromise = ()=>{
     }
   });
 };
-
+//the total output is depends upon the above result.
 myFirstPromise()
       .then((content)=>{
         console.log("the data has been retrieved! ");
