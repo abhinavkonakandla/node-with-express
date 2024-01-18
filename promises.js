@@ -11,7 +11,7 @@
 //in first process the asynchronous process is ongoing.
 //in second process when it completes the asynchronous operation.
 //in third process is when an asynchronous operation failed.
-
+/*
 const { error } = require('console');
 const fs = require('fs') //importing the fs module to create a promise that reads file.
 
@@ -46,7 +46,24 @@ readFilePromise(filetext)
       })
       .catch((error)=>{
         console.log("error",error);
+      })*/
+
+const myFirstPromise = ()=>{
+  return new promise((reject,resolve)=>{
+    if(error){
+      reject(error);
+    }
+    else{
+      resolve(data);
+    }
+  });
+};
+
+myFirstPromise()
+      .then((content)=>{
+        console.log("the data has been retrieved! ");
       })
-
-
+      .catch((error)=>{
+        console.log("an error has been occured");
+      })
 
