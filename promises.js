@@ -8,31 +8,45 @@
 3.rejected.
 */
 
-const fs = require('fs');
+//in first process the asynchronous process is ongoing.
+//in second process when it completes the asynchronous operation.
+//in third process is when an asynchronous operation failed.
 
-// Create a Promise to read a file
-const readFilePromise = (filePath) => {
-  return new Promise((resolve, reject) => {
-    // Asynchronously read the file
-    fs.readFile(filePath, 'utf8', (error, data) => {
-      if (error) {
-        // Reject the Promise if there is an error
+const { error } = require('console');
+const fs = require('fs') //importing the fs module to create a promise that reads file.
+
+const readFilePromise = (filepath,filetext)=>{
+   //`here we created the function readFilePromise that returns a promise.`
+   return new Promise((resolve,reject)=>{
+    //asynchronously read the file
+    fs.readFile(filepath,"utf-8",(error,data)=>{
+      if(error){
         reject(error);
-      } else {
-        // Resolve the Promise with the file content
+      }else{
         resolve(data);
       }
     });
-  });
+   }); 
 };
 
-// Usage of the Promise
-const filePath = 'example.txt';
+const filepath = 'ex.txt';
 
-readFilePromise(filePath)
-  .then((content) => {
-    console.log('File content:', content);
-  })
-  .catch((error) => {
-    console.error('Error reading file:', error);
-  });
+readFilePromise(filepath)
+      .then((content)=>{
+        console.log("file content: ", content);
+      })
+      .catch((error)=>{
+        console.log("error: ",error);
+      })
+
+const filetext = 'ex1.txt';
+readFilePromise(filetext)
+      .then((content)=>{
+        console.log("file content: ", content);
+      })
+      .catch((error)=>{
+        console.log("error",error);
+      })
+
+
+
